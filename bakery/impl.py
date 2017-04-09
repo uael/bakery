@@ -21,7 +21,7 @@ class Bakery(object):
     prob += lpSum([v['margin'] * lp_products[k] for k, v in self.products.items()])
 
     # Time constraint
-    prob += lpSum([v['time'] * lp_products[k] for k, v in self.products.items()]) <= 4
+    prob += lpSum([v['time'] * lp_products[k] for k, v in self.products.items()]) <= max_time
 
     # Stock constraints
     for k, v in self.ingredients.items():
