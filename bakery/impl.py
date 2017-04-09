@@ -15,7 +15,7 @@ class Bakery(object):
     prob = LpProblem("The bakery production", LpMaximize)
 
     # Variables
-    lp_products = {p: LpVariable(p, 0) for p in self.products.keys()}
+    lp_products = {p: LpVariable(p, 0, cat=LpInteger) for p in self.products.keys()}
 
     # Objective
     prob += lpSum([v['margin'] * lp_products[k] for k, v in self.products.items()])
